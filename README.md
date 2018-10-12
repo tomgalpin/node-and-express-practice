@@ -1,7 +1,14 @@
-# gt-local-calendar-sync
+# tom's node and express practice using Google Calendar API
 A simple calendar syncing system that keeps a local cache of calendar events that sync to Google Calendar API.
 
+## Description
 Devise and implement a simple cache system that allows an endpoint that serves a list of calendar events from a logged in user's Google calendar while limiting the number of API hits to Google Calendar by holding a local cache of events.
+
+## Running the Project
+1. Install node.js and npm
+2. CD into directory and run 'npm install'
+3. Run 'DEBUG=node-and-express-practice:* npm run devstart'
+4. Go to browser and navigate to http://localhost:3000/
 
 ## Guidelines
 1. The cache can be built in any way you see fit as long as it persistants beyond server restarts.
@@ -77,9 +84,3 @@ The server should respond to the following request via JSON in the format of the
  }
 }
 ```
-
-## Running the Project
-1. Install node.js and npm
-2. CD into directory and run 'npm install'
-3. Run 'npm run start'
-4. Go to browser and navigate to http://localhost:3007/ for Hello World
