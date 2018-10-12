@@ -6,8 +6,8 @@ Devise and implement a simple cache system that allows an endpoint that serves a
 
 ## Running the Project
 1. Install node.js and npm
-2. CD into directory and run 'npm install'
-3. Run 'DEBUG=node-and-express-practice:* npm run devstart'
+2. CD into directory and run `npm install`
+3. Run `DEBUG=node-and-express-practice:* npm run devstart`
 4. Go to browser and navigate to http://localhost:3000/
 
 ## Guidelines
