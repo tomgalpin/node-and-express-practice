@@ -38,3 +38,5 @@ jspm_packages
 
 # google api creds
 credentials.json
+token.json
+package-lock.json

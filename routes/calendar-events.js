@@ -1,12 +1,12 @@
-var express = require('express');
-var router = express.Router();
-var calendar_events_controller = require('../controllers/calendarEventsController');
-// Home page route.
+const express = require('express');
+const router = express.Router();
+const calendar_events_controller = require('../controllers/calendarEventsController');
+
+// /calendar-events
 router.get('/', function (req, res) {
-  res.send('calendar-events home I think page');
+  calendar_events_controller.readCal()
+  res.send(calendar_events_controller.eventListings)
 })
 
-// GET /calendar-events
-router.get('/calendar-events', calendar_events_controller.getLastTen );
 
 module.exports = router;

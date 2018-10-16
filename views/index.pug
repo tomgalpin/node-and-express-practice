@@ -1,5 +1,9 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(class='container')
+    h1= title
+    p #{description}
+    a(href="/calendar-events")
+      div(class='btn-container')
+        p(class='btn-text') #{btnText}

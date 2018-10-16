@@ -1,3 +1,4 @@
+const express = require('express');
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
@@ -7,15 +8,11 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 const TOKEN_PATH = 'token.json';
 
 // Load client secrets from a local file.
-fs.readFile('credentials.json', (err, content) => {
-  if (err) return console.log('Error loading client secret file:', err);
-  // Authorize a client with credentials, then call the Google Calendar API.
-  authorize(JSON.parse(content), listEvents);
-});
-
-
-function getLastTen(){
-  console.log(18, 'here');
+exports.readCal =  () => {
+  fs.readFile('credentials.json', (err, content) => {
+    if (err) return console.log('Error loading client secret file:', err);
+    authorize(JSON.parse(content), listEvents);
+  });
 };
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -82,14 +79,40 @@ function listEvents(auth) {
   }, (err, res) => {
     if (err) return console.log('The API returned an error: ' + err);
     const events = res.data.items;
+
     if (events.length) {
-      console.log('Upcoming 10 events:');
-      events.map((event, i) => {
-        const start = event.start.dateTime || event.start.date;
-        console.log(`${start} - ${event.summary}`);
-      });
+      parseCalendarEvents(events)
     } else {
-      console.log('No upcoming events found.');
+      exports.eventListings = 'No upcoming events found.'
     }
   });
 }
+
+function parseCalendarEvents(events) {
+  exports.eventListings = events.map((event, i) => {
+    const title = event.summary;
+    const description = event.description;
+    const attendees = event.attendees ? getAttendees(event.attendees) : "No attendees for this event";
+
+    return {
+      "title": title,
+      "description": description,
+      "attendees": attendees
+    }
+  });
+}
+
+function getAttendees(eventAttendees) {
+  return eventAttendees.map((person, i) => {
+    const name = person.displayName ? person.displayName : "No Name Given";
+    const response = person.responseStatus;
+
+    return {
+      "name": name,
+      "response": response,
+    }
+  });
+}
+
+
+
