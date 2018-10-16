@@ -15,21 +15,21 @@ Devise and implement a simple cache system that allows an endpoint that serves a
     * https://developers.google.com/calendar/quickstart/nodejs
 
 ## Structure
-.
-├── bin
-│   └── www                        # Parent file created through Express.js scaffolding
-├── controllers
-│   └── calendarEventsController  # Controller to GET calendar events from Google API, auth, etc..
-├── public
-│   ├──javascript
-│   └── stylesheets
-├── routes
-├── views
-├── app.js                        # Node.js/Express parent file.
-├── credentials.json              # Google Calendar API creds
-├── package.json
-├── README.md
-└── token.json                    # Google Calendar API tokens
+    .
+    ├── bin
+    │   └── www                        # Parent file created through Express.js scaffolding
+    ├── controllers
+    │   └── calendarEventsController  # Controller to GET calendar events from Google API, auth, etc..
+    ├── public
+    │   ├──javascript
+    │   └── stylesheets
+    ├── routes
+    ├── views
+    ├── app.js                        # Node.js/Express parent file.
+    ├── credentials.json              # Google Calendar API creds
+    ├── package.json
+    ├── README.md
+    └── token.json                    # Google Calendar API tokens
 
 ## Running the Project
 1.  Remember to follow the Google Calendar API instructions to set up your `credentials.json` and `token.js` files
