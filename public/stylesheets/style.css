@@ -11,6 +11,23 @@ div.container {
   -moz-box-shadow: 2px 6px 77px 3px rgba(0,0,0,0.5);
   box-shadow: 2px 6px 77px 3px rgba(0,0,0,0.5);
 }
+p.instructions.red {
+  font-weight: bold;
+  color: red;
+}
+div.cal-events-container {
+  border-radius: 5px;
+  width: 0px;
+  height: auto;
+  padding: 0;
+}
+div.cal-events-container.show {
+  padding: 20px;
+  border: 1px solid #000;
+  width: 900px;
+  -webkit-transition: width .5s; /* Safari */
+  transition: width .5s;
+}
 div.btn-container {
   border-radius: 3px;
   background-color: #28a745;
@@ -30,4 +47,30 @@ p.btn-text {
   color: #fff;
   font-weight: 700;
   font-size: 25px;
+}
+div.event * {
+  text-align: left;
+}
+div.event span {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.event:last-child hr { display: none;  }
+div.attendees-container {
+  border: 1px solid gray;
+  padding: 20px;
+  margin: 20px;
+}
+div.attendees-container hr {
+  margin-bottom: 20px;
+}
+div.attendee {
+  margin-bottom: 15px;s
+}
+div.attendee p {
+  font-size: .8em;
+  margin: 5px;
+}
+div.attendee span {
+  font-size: 1em;
 }

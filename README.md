@@ -4,11 +4,39 @@ A simple calendar syncing system that keeps a local cache of calendar events tha
 ## Description
 Devise and implement a simple cache system that allows an endpoint that serves a list of calendar events from a logged in user's Google calendar while limiting the number of API hits to Google Calendar by holding a local cache of events.
 
+## Tutorials and Help
+1.  Followed MDN's Node.js with Express tutorial, for the most part.
+    * Used Express scafolding mentioned there.
+    * https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs
+2.  Google Calendar API with Node.js followed from here:
+    * https://developers.google.com/calendar/quickstart/nodejs
+3.  To run locally, you'll need to follow the steps outlined in the quickstart guide, to create the following files:
+    * `credentials.json` and `token.js`
+    * https://developers.google.com/calendar/quickstart/nodejs
+
+## Structure
+.
+├── bin
+│   └── www                        # Parent file created through Express.js scaffolding
+├── controllers
+│   └── calendarEventsController  # Controller to GET calendar events from Google API, auth, etc..
+├── public
+│   ├──javascript
+│   └── stylesheets
+├── routes
+├── views
+├── app.js                        # Node.js/Express parent file.
+├── credentials.json              # Google Calendar API creds
+├── package.json
+├── README.md
+└── token.json                    # Google Calendar API tokens
+
 ## Running the Project
-1. Install node.js and npm
-2. CD into directory and run `npm install`
-3. Run `DEBUG=node-and-express-practice:* npm run devstart`
-4. Go to browser and navigate to http://localhost:3000/
+1.  Remember to follow the Google Calendar API instructions to set up your `credentials.json` and `token.js` files
+2. Install node.js and npm
+3. CD into directory and run `npm install`
+4. Run `DEBUG=node-and-express-practice:* npm run devstart`
+5. Go to browser and navigate to http://localhost:3000/
 
 ## Guidelines
 1. The cache can be built in any way you see fit as long as it persistants beyond server restarts.

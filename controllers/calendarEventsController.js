@@ -14,6 +14,7 @@ exports.readCal =  () => {
     authorize(JSON.parse(content), listEvents);
   });
 };
+
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
  * given callback function.
@@ -88,11 +89,15 @@ function listEvents(auth) {
   });
 }
 
+/**
+ * Parses the Calendar Events object to only include title, description, and attendees
+ * @param {array} events An array of calendar events objects
+ */
 function parseCalendarEvents(events) {
   exports.eventListings = events.map((event, i) => {
     const title = event.summary;
     const description = event.description;
-    const attendees = event.attendees ? getAttendees(event.attendees) : "No attendees for this event";
+    const attendees = event.attendees ? getAttendees(event.attendees): "";
 
     return {
       "title": title,
@@ -102,6 +107,10 @@ function parseCalendarEvents(events) {
   });
 }
 
+/**
+ * Parses the Attendees object to only name and response
+ * @param {array} eventAttendees An array of attendees
+ */
 function getAttendees(eventAttendees) {
   return eventAttendees.map((person, i) => {
     const name = person.displayName ? person.displayName : "No Name Given";

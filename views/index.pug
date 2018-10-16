@@ -3,7 +3,7 @@ extends layout
 block content
   div(class='container')
     h1= title
-    p #{description}
-    a(href="/calendar-events")
-      div(class='btn-container')
-        p(class='btn-text') #{btnText}
+    p(class='instructions') #{description}
+    div(class='btn-container')
+      p(class='btn-text') #{btnText}
+    div(class='cal-events-container')
